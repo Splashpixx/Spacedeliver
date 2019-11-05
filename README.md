@@ -1,5 +1,4 @@
-# Spacedeliver
-
+![alt text](https://i.ibb.co/NNxzbwY/spaceicon.png)
 
 
 ## Gruppenmitglieder
