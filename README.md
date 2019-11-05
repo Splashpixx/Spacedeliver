@@ -14,6 +14,8 @@ Nachdem der Lieferant bezahlt hat bekommt der Kunde ein Status update und kann p
 [ ===== wieder im Projekt enthalten =====]  
 Nachdem der Lieferant die Bestellung abgegeben hat drückt er den [Deliverd] Botton, danach kann der Kunde bestätigen ob seine wahre vollständig angekommen ist und gegebenenfalls Trinkgeld geben.
 
+## Dev log
+
 ## Design Driven Design
 
 ![alt text](https://i.ibb.co/YBTYW7C/Domainmodell.png)
