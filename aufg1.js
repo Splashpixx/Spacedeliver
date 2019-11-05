@@ -15,7 +15,7 @@ var aktulleAnzahl = 0;
 var bewertung = 0;
 
 const Baum = function () {
-	rl.question('Mit 1 kannst du selber eine Bewertung angeben und mit 2 Zufällige Bewertungen\n', function (x) {
+	rl.question('1 für Eigene bewertung, 2 für randome bewertungen\n', function (x) {
 		
 		switch (parseInt(x)) {
 			case 1:
@@ -40,7 +40,7 @@ const random = function (callback) {
 		console.log("Person " + i + " hat " + random + " sterne gegeben");
 	}
 	callback(("Die App hat " + Math.round(bewertung / i*10)/10 +' von ' + max_Bewertung + ' Sternen')); // bewertung wird auf 1 nachkommastele gekürzt.
-	
+	// mit Math.round kürzt man die berechnung.
 	rl.close();
 }
 
