@@ -16,4 +16,4 @@ Nachdem der Lieferant die Bestellung abgegeben hat drückt er den [Deliverd] Bot
 
 ## Design Driven Design
 
-![alt text](https://ibb.co/0yV8Xj7)
+![alt text](https://i.ibb.co/YBTYW7C/Domainmodell.png)
