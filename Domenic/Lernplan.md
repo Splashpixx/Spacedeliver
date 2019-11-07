@@ -81,8 +81,17 @@
 
 17.10 -> finish Learing plan (on ipad)  
 18.10 -> Wrinting the project description  
-      -> Learing around 5h on Pirple (Online learing platform)  
+      -> Learing around 5h on Pirple (javascript cours)    
 19.10 -> Traingin page 1 finished  
-      -> 2h on Pirple  
+      -> 2h on Pirple (javascript cours)  
 20.10 -> Try to understand Try,catch,final command  
 21.10 -> Dev. a DDD Model  
+23.10 -> 2h on Pirble (Node.js cours).  
+29.10 -> 1,5h on Prible. (Node.js cours).  
+01.11 -> Updating Github stuff.   
+      -> writing the README.md / also creating the "logo".  
+05.11 -> playing around with Async funk and await.  
+      -> writing the short version of the Description for the README.md
+29.11 -> 1,5h on Prible. (Node.js cours).   
+07.11 -> creating a scriebo folder for Github.  
+         Filming the presentation Video, cuting it and Uploade it to Scriebo
