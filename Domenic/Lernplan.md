@@ -79,6 +79,7 @@
 
 ## LOG
 
+#### OKT
 17.10 -> finish Learing plan (on ipad)  
 18.10 -> Wrinting the project description  
 18.10 -> Learing around 5h on Pirple (javascript cours)    
@@ -88,6 +89,7 @@
 21.10 -> Dev. a DDD Model  
 23.10 -> 2h on Pirble (Node.js cours).  
 29.10 -> 1,5h on Prible. (Node.js cours).  
+#### NOV
 01.11 -> Updating Github stuff.   
 01.10 -> writing the README.md / also creating the "logo".  
 05.11 -> playing around with Async funk and await.  
