@@ -1,11 +1,11 @@
 ![alt text](https://i.ibb.co/NNxzbwY/spaceicon.png)
 
 
-## Gruppenmitglieder
+## Groupmembers
 * Radhouan Jouini
 * Domenic Wolf
 
-## Projekbeschreibung
+## Project description
 
 Spacedeliver is a application that help people who can’t go grocery shopping.  
 You can easily choose nearly everything from your local supermarket in our App.  
