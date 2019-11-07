@@ -1,7 +1,7 @@
 ![alt text](https://i.ibb.co/NNxzbwY/spaceicon.png)
 
 
-## Groupmembers
+## Group Members
 * Radhouan Jouini
 * Domenic Wolf
 
