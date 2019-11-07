@@ -94,8 +94,8 @@
 01.11 -> writing the README.md / also creating the "logo".  
 02.11 -> Reading 120 Pages of "REST in Practice"
 05.11 -> playing around with Async funk and await.  
-05.11 -> writing the short version of the Description for the README.md
+05.11 -> writing the short version of the Description for the README.md.  
 07.11 -> creating a scriebo folder for Github.  
-07.11 -> Filming the presentation Video, cuting it and Uploade it to Scriebo
+07.11 -> Filming the presentation Video, cuting it and Uploade it to Scriebo.  
 07.11 -> YT Video 1,5h -> JSON ( and MongoDB)
          
