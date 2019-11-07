@@ -1,9 +1,9 @@
 # Smart Lernplan
 
 ### Deadlines
-* 07.11.19 
-* 12.12.19 
-* 23.01.20
+* 07.11.19        |20P | Developing a Project idea.  
+* 12.12.19        |30P | Video aout the results.  
+* 23.01.20        |50P | Presentation about the end result.  
 
 ### Knowledge Requirements
 -Git      -DDD      -OBS  
