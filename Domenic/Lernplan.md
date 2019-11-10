@@ -98,4 +98,5 @@
 07.11 -> creating a scriebo folder for Github.  
 07.11 -> Filming the presentation Video, cuting it and Uploade it to Scriebo.  
 07.11 -> YT Video 1,5h -> JSON ( and MongoDB)
+08.11 -> 2h "REST und HTTP" Gelesen, 4.kapitel zusamengefasst (s.45).  
          
