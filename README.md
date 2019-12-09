@@ -18,3 +18,8 @@ when your stuff arrived you can rate and tip our Spacedeliverer as well as send 
 ## Domain Modell
 
 ![alt text](https://i.ibb.co/nQYktwL/Projects-10.jpg)
+
+![alt text](https://ibb.co/jgfgDMq)
+
+![alt text](https://ibb.co/CvKS1kj)
+
