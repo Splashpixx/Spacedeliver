@@ -1,0 +1,47 @@
+	"User":
+	{
+		"titel": "Nutzer",
+		"type" :  "object"
+		
+		"eigenschaften": 
+		[{	
+				"Vorname":"string"
+				"Nachname":"string"
+				"ID":"sting"
+				
+				"Alter":{
+					"type": "Integer"
+					"minimum": "16"
+				}
+				
+				"Username": {
+					"type": "string"
+					"min-lengh": "8"
+				}
+				
+				"Kunde":[
+					{
+						"Adresse":{
+							"Land": "string"
+							"straße": "string"
+							"Ort": "string"
+							"Hausnummer":"integer"
+							"Plz": "integer"
+						}
+						"Bezahlmittel":{
+							
+						}
+					}
+				]
+				
+				"Lieferant":[
+					{
+						"Smartphone": "string"
+						"Fortbewegundsmittel":
+						"Personal-Score": "float"
+						"Status":
+					}
+				]
+				
+		}]	
+	}
