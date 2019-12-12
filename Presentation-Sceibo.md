@@ -5,5 +5,6 @@ Hier ist eine gliederung aller Präsentationen
 https://th-koeln.sciebo.de/s/MQ6PME0FAvSC9Rd
 
 ## Abgabe 12.12.19
+https://th-koeln.sciebo.de/s/pGRVkQPOOtOMkpA
 
 ## Abgabe 23.01.20
