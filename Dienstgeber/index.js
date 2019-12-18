@@ -9,7 +9,6 @@ var url = require('url');
 var StringDecoder = require('string_decoder').StringDecoder;
 var config = require('./config'); //dont need to tell Node that config is js
 var fs = require('fs');
-var _data = require('./lib/data');
 
 // CRUD
 // Create
