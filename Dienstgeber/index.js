@@ -12,7 +12,7 @@ var fs = require('fs');
 
 // CRUD
 // Create
-//_data.read('test','newFile',{'foo' : 'bar'},function (err) {
+//_data.create('test','newFile',{'foo' : 'bar'},function (err) {
 //	console.log('this was the err ',err);
 //});
 //Read
