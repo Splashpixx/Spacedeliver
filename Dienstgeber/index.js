@@ -2,13 +2,38 @@
 Primäre Datei für die APIs
 */
 
-//Dependencies
+//Das gleiche wie #Include in C
 var http = require('http');
+var https = require('https');
 var url = require('url');
 var StringDecoder = require('string_decoder').StringDecoder;
+var config = require('./config'); //dont need to tell Node that config is js
+var fs = require('fs');
 
+var httpServer = http.createServer(function (req,res) {
+	unifiedServer(req, res);
+});
 
-var server = http.createServer(function (req,res) {
+//. iniziiert den server
+httpServer.listen(config.httpPort, function () {
+	console.log("Der server läuft auf " +config.httpPort);
+});
+
+//um zu einem https server din zu werden brauchen wir unseren privat key
+var httpsServerOptions = {
+	'key': fs.readFileSync('./https/key.pem'),
+	'cert' :	fs.readFileSync('./https/cert.pem')
+};
+var httpsServer = https.createServer(httpsServerOptions,function (req,res) {
+	unifiedServer(req, res);
+});
+//
+httpsServer.listen(config.httpsPort, function () {
+	console.log("Der server läuft auf " +config.httpsPort);
+});
+
+//server logic für http und https
+var unifiedServer = function (req,res) {
 	var parsedUrl = url.parse(req.url,true); 
 	
 	// Get path | pathname das ende eines request (ohne http300 ....)
@@ -40,22 +65,20 @@ var server = http.createServer(function (req,res) {
 		};
 
 		chosenHandler(data, function (statusCode,payload) {
-			statusCode = typeof(statusCode) == 'number' ? statusCode : 200;			
-			payload = typeof(payload) == 'objectr' ? payload : {};
+			
+			statusCode = typeof(statusCode) == 'number' ? statusCode : 200;		
+			payload = typeof(payload) == 'object' ? payload : {};
 
 			var payloadString = JSON.stringify(payload);
 			
+			res.setHeader('Content-Type', 'application/json');
 			res.writeHead(statusCode);
 			res.end(payloadString);
 
 			console.log('Return this response', statusCode, payloadString);
 		});		
 	});
-});
-
-server.listen(3000, function () {
-	console.log("Der server läuft");
-});
+};
 
 var handlers = {};
 
