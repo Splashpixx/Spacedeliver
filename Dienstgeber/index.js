@@ -9,6 +9,26 @@ var url = require('url');
 var StringDecoder = require('string_decoder').StringDecoder;
 var config = require('./config'); //dont need to tell Node that config is js
 var fs = require('fs');
+var _data = require('./lib/data');
+
+// CRUD
+// Create
+//_data.read('test','newFile',{'foo' : 'bar'},function (err) {
+//	console.log('this was the err ',err);
+//});
+//Read
+//_data.read('test','newFile',function (err,data) {
+//	console.log('this was the err ',err,'and this was the data',data);
+//});
+//Update
+//_data.update('test','newFile',{'fizz' : 'buzz'},function (err) {
+//	console.log('this was the err ',err);
+//});
+//Del
+//_data.delete('test','newFile',function (err) {
+//	console.log('this was the err ',err);
+//});
+
 
 var httpServer = http.createServer(function (req,res) {
 	unifiedServer(req, res);
@@ -81,17 +101,17 @@ var unifiedServer = function (req,res) {
 };
 
 var handlers = {};
-
-handlers.sample = function (data,callback) {
-	callback(406,{'name' : 'sample handler'});
-};
+// Ping handler um zu schauen ob die app noch lebt oder gestorben ist
+handlers.ping = function (data,callback) {
+	callback(200);
+}
 
 handlers.notFound = function (data,callback) {
 	callback(404);
 };
 
 var router =  {
-	'sample' : handlers.sample
+	'ping' : handlers.ping
 };
 
 //cmd+k  = clear
