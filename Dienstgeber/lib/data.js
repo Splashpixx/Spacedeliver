@@ -1,6 +1,9 @@
 
+// <Dependencies>
 var fs =  require('fs');
 var path = require('path');
+var helpers = require('./helpers');
+// </Dependencies>
 
 // container
 var lib ={};
@@ -8,7 +11,7 @@ var lib ={};
 // Base dir
 lib.baseDir = path.join(__dirname,'/../.data/');
 
-//CRUD Stuff
+//CRUD Stuff !
 
 //Create
 lib.create = function (dir,file,data,callback) {
@@ -41,7 +44,13 @@ lib.create = function (dir,file,data,callback) {
 // Read
 lib.read = function (dir,file,callback) {
 	fs.readFile(lib.baseDir+dir+'/'+file+'.json','utf-8',function (err,data) {
-		callback(err,data);
+		if (!err && data) {
+			var parsedData = helpers.parseJsonToObject(data);
+			callback(false, parsedData);
+		} else {
+			callback(err,data);
+
+		}
 	});
 };
 
@@ -82,7 +91,6 @@ lib.update = function (dir,file,data,callback) {
 	});
 };
 
-
 // Del
 lib.delete = function (dir,file,callback) {
 	fs.unlink(lib.baseDir+dir+'/'+file+'.json',function (err) {
@@ -95,6 +103,5 @@ lib.delete = function (dir,file,callback) {
 };
 
 
-
-//
+// Export
 module.exports = lib;
