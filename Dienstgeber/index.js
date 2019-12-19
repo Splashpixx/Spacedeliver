@@ -3,14 +3,19 @@ Primäre Datei für die APIs
 */
 
 //Das gleiche wie #Include in C
+// <Dependencies>
 var http = require('http');
 var https = require('https');
 var url = require('url');
 var StringDecoder = require('string_decoder').StringDecoder;
-var config = require('./config'); //dont need to tell Node that config is js
+var config = require('./lib/config'); 
 var fs = require('fs');
+var handlers = require('./lib/handlers');
+var helpers = require('./lib/helpers');
+// </Dependencies>
 
-// CRUD
+
+// How to use CRUD
 // Create
 //_data.create('test','newFile',{'foo' : 'bar'},function (err) {
 //	console.log('this was the err ',err);
@@ -46,7 +51,7 @@ var httpsServerOptions = {
 var httpsServer = https.createServer(httpsServerOptions,function (req,res) {
 	unifiedServer(req, res);
 });
-//
+
 httpsServer.listen(config.httpsPort, function () {
 	console.log("Der server läuft auf " +config.httpsPort);
 });
@@ -80,7 +85,7 @@ var unifiedServer = function (req,res) {
 			'queryStringObject' : queryStringObject,
 			'method' : method,
 			'headers' : headers,
-			'payload' : buffer
+			'payload' : helpers.parseJsonToObject(buffer)
 		};
 
 		chosenHandler(data, function (statusCode,payload) {
@@ -99,20 +104,7 @@ var unifiedServer = function (req,res) {
 	});
 };
 
-var handlers = {};
-// Ping handler um zu schauen ob die app noch lebt oder gestorben ist
-handlers.ping = function (data,callback) {
-	callback(200);
-}
-
-handlers.notFound = function (data,callback) {
-	callback(404);
-};
-
 var router =  {
-	'ping' : handlers.ping
+	'ping' : handlers.ping,
+	'users' : handlers.users
 };
-
-//cmd+k  = clear
-
-
