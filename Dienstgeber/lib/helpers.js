@@ -27,6 +27,28 @@ helpers.parseJsonToObject = function (str) {
 	}
 };
 
+helpers.createRandomString = function (strLength) {
+	strLength = typeof(strLength) == 'number' && strLength > 0 ? strLength : false;
+	
+	if (strLength) {
+		var possibleChar = 'abcdefghijklmnopqrstivwxyz1234567890';
+		
+		var str = '';
+		
+		for (i = 1; i<= strLength; i++) {
+			var randomeChar =possibleChar.charAt(Math.floor(Math.random() * possibleChar.length));
+			
+			str+=randomeChar;
+		}
+		
+		return str;
+	} else {
+		return false;
+	}
+};
+
 
 //Export
 module.exports = helpers
+
+

@@ -103,5 +103,21 @@ lib.delete = function (dir,file,callback) {
 };
 
 
+//list
+lib.list = function (dir,callback) {
+	fs.readdir(lib.baseDir+'dir'+'/',function (err,data) {
+		if (!err && data && data.lenght > 0) {
+			var trimmedFileName = [];
+			data.forEach(function (fileName) {
+				trimmedFileName.push(fileName.replace('.json',''));
+			});
+			callback(false,trimmedFileName);
+		} else {
+			callback(err, data);
+		}
+	});
+};
+
+
 // Export
 module.exports = lib;

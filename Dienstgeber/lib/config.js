@@ -30,3 +30,6 @@ var enviromentToExport = typeof(enviroments[currentEnviroment]) == 'object' ? en
 
 // Export 
 module.exports = enviromentToExport;
+
+//in die env. kommen die benutzen API's
+// Also MailGun, Stripe, Mastercard...
