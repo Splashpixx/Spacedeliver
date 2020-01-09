@@ -5,6 +5,12 @@
 * Radhouan Jouini
 * Domenic Wolf
 
+## Dev-Log
+
+1. Es wurden 2 Weitere Api's angeschaut die jetzt verwendet werden
+- Mailgun -> sendet dem nutzer nach der bestellung eine E-mail
+- Stripe -> Nutzer kann dadurch alle "standart" zahlungsarten Nutzen.
+
 ## Project description
 
 Spacedeliver is a application that help people who can’t go grocery shopping.  
