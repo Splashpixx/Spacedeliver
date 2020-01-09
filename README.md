@@ -6,7 +6,7 @@
 * Domenic Wolf
 
 ## Dev-Log
-
+09.01.20
 1. Es wurden 2 Weitere Api's angeschaut die jetzt verwendet werden
 - Mailgun -> sendet dem nutzer nach der bestellung eine E-mail
 - Stripe -> Nutzer kann dadurch alle "standart" zahlungsarten Nutzen.
