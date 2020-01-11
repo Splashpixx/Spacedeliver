@@ -23,3 +23,9 @@ app.init();
 module.exports = app;
 
 
+
+/*
+Keystore password: keystorepassword
+Key alias: keyalias
+*/
+
