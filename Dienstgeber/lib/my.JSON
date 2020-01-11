@@ -1,0 +1,5 @@
+[{"Id": 1,"Name": "Banane","Price": 2.99,"Art": "Obst","Weight": "100",},
+{"Id": 2,"Name": "Apfel","Price": 0.99,"Art": "Obst","Weight": "100",},
+{"Id": 3,"Name": "Birne","Price": 1.99,"Art": "Obst","Weight": "200",},
+{"Id": 4,"Name": "Orange","Price": 4.39,"Art": "Obst","Weight": "Obst",},
+{"Id": 5,"Name": "Schnittlauch","Price": 0.49,"Art": "Gemüse","Weight": "40",}]

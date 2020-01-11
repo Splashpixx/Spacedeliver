@@ -10,6 +10,7 @@ var fs = require('fs');
 var handlers = require('./handlers');
 var helpers = require('./helpers');
 var path = require('path');
+
 // </Dependencies>
 
 // instantiate
@@ -81,8 +82,8 @@ server.router =  {
 	'ping' : handlers.ping,
 	'users' : handlers.users,
 	'tokens' : handlers.tokens,
-	'item' : handlers.item,
-	'menuitems' : handlers.menuitems
+	'menu' : handlers.menu,
+	'cart' : handlers.cart,
 };
 
 
@@ -91,12 +92,12 @@ server.init = function () {
 	
 	//start http
 	server.httpServer.listen(config.httpPort, function () {
-		console.log("Der server läuft auf " +config.httpPort);
+		console.log("Der server läuft auf " + config.httpPort);
 	});
 	
 	//start https
 	server.httpsServer.listen(config.httpsPort, function () {
-		console.log("Der server läuft auf " +config.httpsPort);
+		console.log("Der server läuft auf " + config.httpsPort);
 	});
 }
 
