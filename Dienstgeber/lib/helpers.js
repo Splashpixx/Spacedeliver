@@ -67,10 +67,10 @@ helpers.lookIfeverythingIsallRight = function (orderArray) {
 		return false;
 	}
 	
+	
 	//step 3. schau ob die gegebenen id's in der Json Existieren ()
-	
 	var hand = helpers.getStuff();
-	
+
 	orderArray.forEach(function (element) {
 		
 		/* .some überprüft einen Array (hand) und schaut ob mindestens ein Element den übergebenen kriterien entspricht */
@@ -80,7 +80,7 @@ helpers.lookIfeverythingIsallRight = function (orderArray) {
 		}
 	});
 	
-	return orderName
+	return orderArray;
 }
 
 
@@ -101,9 +101,11 @@ helpers.grammar = function (input, requiriedFields = []) {
 				return false;
 			}
 		});
+		
+		return input;
 }
 
-helpers.ValidArray = function () {
+helpers.ValidArray = function (input) {
 	return typeof(input) == 'object' && input instanceof Array && input.length > 0 ? input : false;
 }
 
@@ -123,14 +125,15 @@ helpers.haveAllProperties = function(element, fields) {
 
 helpers.getStuff = function () {
 	
-	// hat funktioniert aber is halt sync
-//	var texscht = fs.readFileSync(helpers.baseDir+'/'+'my'+'.json', 'utf8');
-//	return JSON.parse(texscht);
+//	 is halt sync
+	var texscht = fs.readFileSync(helpers.baseDir+'/'+'my'+'.json', 'utf8');
+	return JSON.parse(texscht);
 	
 	//Test
-	fs.readFile(helpers.baseDir+'/'+'my'+'.json', 'utf8', function (err, data) {
-		return data;
-	});
+//	fs.readFile(helpers.baseDir+'/'+'my'+'.json', 'utf8', function (err, data) {
+//		return data;
+//		
+//	});
 }
 
 //Export
