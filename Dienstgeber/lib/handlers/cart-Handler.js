@@ -128,7 +128,29 @@ _cart.delete = function (data, callback) {
 				callback(403, {'error':'token is invalid'});
 			} else {
 				
-				
+				var orderId = data.queryStringObject.orderid;
+
+							console.log('Data received: ' + JSON.stringify(data.queryStringObject));
+							console.log('Order id validated: ' + orderId);
+
+							if (!orderId) {
+								callback(403, {'Error' : 'Order id is missing or not a number.' });
+								return;
+							}
+							
+							var orderFileName = helpers.orderName(orderId, UserName);
+
+							//Delete the order file
+							_data.delete('orders', orderFileName, function(err)
+							{
+								if(err) {	
+									callback(500, {'Error' : 'Error deleting the order or the order does not exist.'});
+									return;
+								} else {
+									callback(200, {'Message' : 'The order was deleted.'});
+									return;
+								}
+							});
 				
 			}
 	});	
