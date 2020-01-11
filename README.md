@@ -13,7 +13,10 @@
 
 11.01.20  
 1. Handlers haben einen eigenen ordner bekommen zur besseren übersicht (Auslagerung)  
-2. handler-order und handler-menu wurde erstellt um die vorhandenen produkte anzuschauen, handler-order besitzt bis jetzt nur die Post funktion mit der eine order.json erstellt wird (teilweise funktionieren)
+2. handler-order und handler-menu wurde erstellt um die vorhandenen produkte anzuschauen, ~~handler-order besitzt bis jetzt nur die Post funktion mit der eine order.json erstellt wird (teilweise funktionieren)~~
+man kann ab jetzt eine order erstellen, alle orders auflisten lassen und orders löschen.   
+
+12.01.20
 
 ## Project description
 
