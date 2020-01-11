@@ -28,10 +28,7 @@ _cart.post = function (data, callback) {
 				var allRight = helpers.lookIfeverythingIsallRight(data.payload);
 
 					if (!allRight) {
-//						var texscht = fs.readFileSync(helpers.baseDir+'/'+'my'+'.json', 'utf8');
-//						console.log(texscht);
-						callback(403, {'Error' : 'invalid order' });
-						console.log(data);
+						callback(403, {'Error' : 'invalid order' });		
 					}else {
 						
 						
@@ -60,8 +57,60 @@ _cart.post = function (data, callback) {
 
 _cart.get = function (data, callback) {
 	
+		var UserName = typeof(data.queryStringObject.UserName) == 'string' && data.queryStringObject.UserName.trim().length > 0 ? data.queryStringObject.UserName.trim() :  false;
+
+		var tokens = typeof(data.headers.tokens) == 'string' ? data.headers.tokens : false; // Rechtschreibung !
+
+		_tokens.verifyToken(tokens, UserName, function (tokenIsValid, tokenData) {
+					
+			if (!tokenIsValid) {
+				callback(403, {'error':'token is invalid'});
+			} else {
+				
+				
+				
+				_data.listContaining('orders', UserName, function(err, fileList){
+					if (!err) {
+						// if no orders found
+						if (fileList.length == 0) {
+							callback(200, {'Message':'There is no order'});
+						}
+						
+						var orderArr =  [];
+						var count = 0;
+						
+						// 
+						fileList.forEach(function(fileName){
+										
+							_data.read('orders', fileName, function(err, orderData){
+													
+								++count;
+								if (err) {
+									callback(500, {'Error' :  'Ja heida bimbam da isch a unbekannda fehla' });
+									return;
+								} else if (orderData != null){
+									orderArr.push(orderData);
+								}
+								//when all orders are processed, return the array
+								if (count === fileList.length) {
+									callback(200, {'All orders': orderArr});
+									return;
+								}
+							});
+						});			
+						
+						
+						
+					}  else {
+						callback(500, {'Error':'i dont know'});
+					}
+				});
+				
+				
+			}
+	});	
 	
-}
+};
 
 
 //Del
@@ -69,6 +118,20 @@ _cart.get = function (data, callback) {
 
 _cart.delete = function (data, callback) {
 	
+		var UserName = typeof(data.queryStringObject.UserName) == 'string' && data.queryStringObject.UserName.trim().length > 0 ? data.queryStringObject.UserName.trim() :  false;
+
+		var tokens = typeof(data.headers.tokens) == 'string' ? data.headers.tokens : false; // Rechtschreibung !
+
+		_tokens.verifyToken(tokens, UserName, function (tokenIsValid, tokenData) {
+					
+			if (!tokenIsValid) {
+				callback(403, {'error':'token is invalid'});
+			} else {
+				
+				
+				
+			}
+	});	
 	
 }
 
