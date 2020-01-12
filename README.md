@@ -17,7 +17,7 @@
 man kann ab jetzt eine order erstellen, alle orders auflisten lassen und orders löschen.   
 
 12.01.20
-1. Implementierung von purchase-Handler, problem beim Stripe Request :/
+1. Implementierung von purchase-Handler, ~~problem beim Stripe Request :/~~ Stripe funktioniert jedoch ist das Mailgun konto gesperrt weil der key beim upload ausversehn noch dabei war (Gefixt muss auf Mailgun Support warten)
 
 ## Project description
 
