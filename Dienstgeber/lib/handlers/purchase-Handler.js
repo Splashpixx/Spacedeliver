@@ -195,7 +195,7 @@ const sendReceipt = function (sender, receiver, subject, message, callback) {
 			'headers': {
 				'Content-Type': 'application/x-www-form-urlencoded',
 				'Content-Length': Buffer.byteLength(stringPayload),
-				'Authorization': 'Basic ' + Buffer.from('api:' + 'd5aa21e653903c11cfc38c6a58471437-713d4f73-84ab0eb2', 'utf8').toString('base64')
+				'Authorization': 'Basic ' + Buffer.from('api:' + '--xxx--', 'utf8').toString('base64')
 			}
 		};
 			
@@ -289,7 +289,7 @@ const createStripeRequest = function (content) {
 		'path': '/v1/charges',
 		'headers':
 		{
-			'Authorization':  'Bearer sk_test_BwhGkY4CmbOahCD3NdgkbZkZ00pJXCwPrB',
+			'Authorization':  'Bearer --xxx--',
 			'Content-Length': Buffer.byteLength(content),
 			'Accept': 'application/json',
 			'Content-Type': 'application/x-www-form-urlencoded'
