@@ -54,11 +54,9 @@ _purchase.post = function (data,callback) {
 							_data.delete('orders', orderFileName, function(err)
 							{
 								if(err) {	
-									callback(500, {'Error' : 'Error deleting the order or the order does not exist.'});
-									return;
+									console.log('Error deleting the order or the order does not exist')
 								} else {
-									callback(200, {'Message' : 'The order was deleted.'});
-									return;
+									console.log('The order was deleted');
 								}
 							});
 						}// finish Del
@@ -111,11 +109,11 @@ const processOrder = function (receiverEmail, order, callback) {
 	
 	var receiver = receiverEmail;
 	var bill = calculateBill(order);
-	console.log('lets go 1');
+	
 	var orderPayload = createOrderPayload(bill, receiver);
-	console.log('lets go 2');
+	
 	var orderDetails = createStripeRequest(orderPayload);
-	console.log('lets go 3');
+	
 
 	purchase(orderDetails, orderPayload, function (err) {
 		if (err) {
@@ -124,7 +122,7 @@ const processOrder = function (receiverEmail, order, callback) {
 			callback(false);
 
 			// If the payment was accepted, send the receipt via email
-			const sender = config.env.mailGun.senderMail;
+			var sender = 'sandbox0d32ac152b8f468c9a4145814b6056a9.mailgun.org';
 
 			sendReceipt(sender, receiver, "Spacedeliver order", bill.desc, function (err) {
 				if (err) {
@@ -133,28 +131,29 @@ const processOrder = function (receiverEmail, order, callback) {
 						console.log('Sent receipt.');
 				}
 			});
-		}
+			console.log('ENDE');
+		} 
 	});
 };
 
 const purchase = function (orderDetails, orderPayload, callback) {
 	
 	console.log('\nTrying to charge a card via Stripe...\n');
-
+	
 	if (orderDetails && orderPayload) {
-
 		var req = https.request(orderDetails, function (res) {
-
+		
 			if (200 == res.statusCode || 201 == res.statusCode) {
 				callback(false);
 			} else {
-				console.log('here');
 				callback(500);
 			}
 		});
-		req.on('error', function (error) {
-			callback('Error while processing your payment. Please try again.');
+		
+		req.on('error', function (e) {
+			console.log(e);
 		});
+		
 		req.write(orderPayload);
 		req.end();
 
@@ -167,11 +166,11 @@ const sendReceipt = function (sender, receiver, subject, message, callback) {
 	console.log(`\nTrying to send a receipt from ${sender} to ${receiver}.\n`);
 
 	// Validate fields
-	sender = helpers.validateEmail(sender);
+	sender = 'sandbox0d32ac152b8f468c9a4145814b6056a9.mailgun.org';
 	receiver = helpers.validateEmail(receiver);
-	subject = helpers.validateString(subject, 1, config.maxEmailSubjectLength);
-	message = helpers.validateString(message);
-
+//	subject = helpers.validateString(subject);
+//	message = helpers.validateString(message);
+//	console.log(sender, receiver, subject, message, callback);
 	if (sender && receiver && subject && message) {
 
 		// Create the request payload
@@ -192,23 +191,25 @@ const sendReceipt = function (sender, receiver, subject, message, callback) {
 			'protocol': 'https:',
 			'hostname': 'api.eu.mailgun.net',
 			'method': 'post',
-			'path': `/v2/${sandbox0d32ac152b8f468c9a4145814b6056a9.mailgun.org}/messages`,
+			'path': `/v2/sandbox0d32ac152b8f468c9a4145814b6056a9.mailgun.org/messages`,
 			'headers': {
 				'Content-Type': 'application/x-www-form-urlencoded',
 				'Content-Length': Buffer.byteLength(stringPayload),
 				'Authorization': 'Basic ' + Buffer.from('api:' + 'd5aa21e653903c11cfc38c6a58471437-713d4f73-84ab0eb2', 'utf8').toString('base64')
 			}
 		};
-
+			
 		// Instantiate the request object
 		var req = https.request(requestDetails, function (res) {
 
 			res.on('data', function (data) {
 					console.log("\nData from MailGun:\n" + data + "\n");
 			});
-
+				console.log('This !\n',res.statusCode);
+				
 			res.on('end', function () {
 				var status = res.statusCode;
+				
 				if (status === 200 || status === 201) {
 					callback(false);
 				} else {
@@ -216,17 +217,19 @@ const sendReceipt = function (sender, receiver, subject, message, callback) {
 				}
 			});
 		});
-
+		
 		// In case of an error, bubble it up
 		req.on('error', function (error) {
+			
 			callback(error);
 		});
-
+		
 		// Add the payload
 		req.write(stringPayload);
 		req.end();
-
+		
 	} else {
+		
 		callback(`Error: Missing required field. Input data:\nSender: ${sender}\nReceiver: ${receiver}\nSubject: ${subject}\nMessage: ${message}\n`);
 	}
 };
@@ -264,7 +267,7 @@ const calculateBill = function (order) {
 const createOrderPayload = function (bill, email) {
 	
 	var payload = {
-		'currency': '€',
+		'currency': 'EUR',
 		'source': 'tok_visa',
 		'amount': bill.charge,
 		'description': bill.desc,
@@ -286,7 +289,7 @@ const createStripeRequest = function (content) {
 		'path': '/v1/charges',
 		'headers':
 		{
-			'Authorization': `${sk_test_BwhGkY4CmbOahCD3NdgkbZkZ00pJXCwPrB}`,
+			'Authorization':  'Bearer sk_test_BwhGkY4CmbOahCD3NdgkbZkZ00pJXCwPrB',
 			'Content-Length': Buffer.byteLength(content),
 			'Accept': 'application/json',
 			'Content-Type': 'application/x-www-form-urlencoded'
@@ -294,7 +297,7 @@ const createStripeRequest = function (content) {
 	};
 	
 	return requestDetails;
-}
+};
 
 
 //export

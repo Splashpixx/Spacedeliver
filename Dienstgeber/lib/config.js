@@ -24,7 +24,7 @@ enviroments.staging = {
 			'hostname': 'api.eu.mailgun.net', //european endpoint
 			'domain': 'sandboxXXX.mailgun.org',
 			'apiKey': 'd5aa21e653903c11cfc38c6a58471437-713d4f73-84ab0eb2',
-			'senderMail': ''
+			'senderMail': 'sandbox0d32ac152b8f468c9a4145814b6056a9.mailgun.org'
 		}
 };
 
@@ -46,7 +46,7 @@ enviroments.production = {
 			'hostname': 'api.mailgun.net', //us endpoint
 			'domain': 'sandboxXXX.mailgun.org',
 			'apiKey': 'd5aa21e653903c11cfc38c6a58471437-713d4f73-84ab0eb2', //unescape the chars?
-			'senderMail': ''
+			'senderMail': 'sandbox0d32ac152b8f468c9a4145814b6056a9.mailgun.org'
 		}
 };
 

@@ -135,7 +135,7 @@ helpers.getStuff = function () {
 //	});
 }
 
-helpers.validateEmail = function () {
+helpers.validateEmail = function (input) {
 	
 	input = typeof(input) == 'string' ? input.trim() : false;
 	 	const regex = /(?:"?([^"]*)"?\s)?(?:<?(.+@[^>]+)>?)/;
@@ -149,9 +149,10 @@ helpers.validateEmail = function () {
 }
 
 
-helpers.validateString = function () {
+helpers.validateString = function (input, possibleValues, defaultOutput = false) {
 	
 	var result = typeof(input) == 'string' ? input.trim() : false;
+
 
 		if (possibleValues instanceof Array && possibleValues != null){
 			result = possibleValues.indexOf(result) > -1 ? result : false;
