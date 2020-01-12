@@ -17,6 +17,7 @@
 man kann ab jetzt eine order erstellen, alle orders auflisten lassen und orders löschen.   
 
 12.01.20
+1. Implementierung von purchase-Handler, problem beim Stripe Request :/
 
 ## Project description
 
