@@ -14,8 +14,8 @@ enviroments.staging = {
 	'envName' : 'staging',
 	'hashingSecret' : 'Is-There_enough-SpaceTo-Deliver',
 	'stripe': {
-			'publicKey': 'pk_test_eapLY31Dyk9jTICKdSURDDvD00MfTgcMe6',
-			'secretKey': 'sk_test_BwhGkY4CmbOahCD3NdgkbZkZ00pJXCwPrB',
+			'publicKey': 'xxx',
+			'secretKey': 'xxx',
 			'currency': 'EUR',
 			'currencySign': '€',
 			'source': 'tok_visa'
@@ -23,8 +23,8 @@ enviroments.staging = {
 	'mailGun': {
 			'hostname': 'api.eu.mailgun.net', //european endpoint
 			'domain': 'sandboxXXX.mailgun.org',
-			'apiKey': 'd5aa21e653903c11cfc38c6a58471437-713d4f73-84ab0eb2',
-			'senderMail': 'sandbox0d32ac152b8f468c9a4145814b6056a9.mailgun.org'
+			'apiKey': 'xxx',
+			'senderMail': 'sandbox-xxx-.mailgun.org'
 		}
 };
 
@@ -35,8 +35,8 @@ enviroments.production = {
 	'envName' : 'production',
 	'hashingSecret' : 'Is-There_enough-SpaceTo-Deliver',
 	'stripe': {
-			'publicKey': 'pk_test_eapLY31Dyk9jTICKdSURDDvD00MfTgcMe6',
-			'secretKey': 'sk_test_BwhGkY4CmbOahCD3NdgkbZkZ00pJXCwPrB',
+			'publicKey': 'xxx',
+			'secretKey': 'xxx',
 			'currency': 'EUR',
 			'currencySign': '€',
 			'source': ' '
@@ -45,8 +45,8 @@ enviroments.production = {
 	'mailGun': {
 			'hostname': 'api.mailgun.net', //us endpoint
 			'domain': 'sandboxXXX.mailgun.org',
-			'apiKey': 'd5aa21e653903c11cfc38c6a58471437-713d4f73-84ab0eb2', //unescape the chars?
-			'senderMail': 'sandbox0d32ac152b8f468c9a4145814b6056a9.mailgun.org'
+			'apiKey': 'xxx', //unescape the chars?
+			'senderMail': 'sandbox-xxx-.mailgun.org'
 		}
 };
 
