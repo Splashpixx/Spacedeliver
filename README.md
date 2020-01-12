@@ -33,10 +33,10 @@ when your stuff arrived you can rate and tip our Spacedeliverer as well as send 
 1. Create User (Users,POST)
 2. Log in (Token,POST)
 3. View item-list (menu,GET)
+4. Order something (order,POST)
 
 ##### Comeing Soon
 
-4. Order something (order,POST)
 5. Pay your stuff (PURCHASE, POST)
 ....
 N. Logout (Token, DEL)
