@@ -125,17 +125,43 @@ helpers.haveAllProperties = function(element, fields) {
 
 helpers.getStuff = function () {
 	
-//	 is halt sync
+//	 is halt sync aber funktioniert (Verweis auf 148)
 	var texscht = fs.readFileSync(helpers.baseDir+'/'+'my'+'.json', 'utf8');
 	return JSON.parse(texscht);
 	
 	//Test
 //	fs.readFile(helpers.baseDir+'/'+'my'+'.json', 'utf8', function (err, data) {
 //		return data;
-//		
 //	});
 }
 
+helpers.validateEmail = function () {
+	
+	input = typeof(input) == 'string' ? input.trim() : false;
+	 	const regex = /(?:"?([^"]*)"?\s)?(?:<?(.+@[^>]+)>?)/;
+
+		if (input && regex.test(String(input).toLowerCase())){
+	    	return input;
+		} else {
+	    	return false;
+	    }
+	
+}
+
+
+helpers.validateString = function () {
+	
+	var result = typeof(input) == 'string' ? input.trim() : false;
+
+		if (possibleValues instanceof Array && possibleValues != null){
+			result = possibleValues.indexOf(result) > -1 ? result : false;
+		}
+		if (result == false){
+			return defaultOutput;
+		}else{
+			return result;
+			}
+}
 //Export
 module.exports = helpers
 

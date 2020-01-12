@@ -84,6 +84,7 @@ server.router =  {
 	'tokens' : handlers.tokens,
 	'menu' : handlers.menu,
 	'cart' : handlers.cart,
+	'purchase' : handlers.purchase
 };
 
 

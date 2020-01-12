@@ -16,7 +16,7 @@ var _users = require('./handlers/User-Handler');
 var _tokens = require('./handlers/token-Handler');
 var _menu = require('./handlers/Menu-Handler');		//@TODO
 var _cart = require('./handlers/cart-Handler');
-
+var _purchase = require('./handlers/purchase-Handler');
 
 
 // </Dependencies>
@@ -58,6 +58,15 @@ handlers.cart = function(data,callback){
 	var acceptableMethods = ['post','get','delete'];
 	if(acceptableMethods.indexOf(data.method) > -1){
 		_cart[data.method](data,callback);
+	} else {
+		callback(405);
+	}
+};
+
+handlers.purchase = function(data,callback){
+	var acceptableMethods = ['post'];
+	if(acceptableMethods.indexOf(data.method) > -1){
+		_purchase[data.method](data,callback);
 	} else {
 		callback(405);
 	}
