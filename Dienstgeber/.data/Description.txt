@@ -1,2 +1,6 @@
-! Hier wird stuff beschrieben,
-wann das geschiet weiß aber noch niemand :P
+In diesem Verzeichniss werden 3 Ordner Benötigt und zwar,
+1. orders
+2. tokens
+3. users
+
+
