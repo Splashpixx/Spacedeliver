@@ -17,6 +17,8 @@ var _tokens = require('./handlers/token-Handler');
 var _menu = require('./handlers/Menu-Handler');		//@TODO
 var _cart = require('./handlers/cart-Handler');
 var _purchase = require('./handlers/purchase-Handler');
+var _delivers = require('./handlers/Deliver-Handler');
+
 
 
 // </Dependencies>
@@ -72,7 +74,15 @@ handlers.purchase = function(data,callback){
 	}
 };
 
+handlers.delivers = function (data,callback) {
+	var acceptableMethodes = ['post','get','put','delete'];
 
+	if (acceptableMethodes.indexOf(data.method) > -1) {
+		_delivers[data.method](data,callback);
+	} else {
+		callback(405);
+	}
+};
 // Ping handler um zu schauen ob die app noch lebt oder gestorben ist
 handlers.ping = function (data,callback) {
 	callback(200); 
