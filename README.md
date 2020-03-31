@@ -2,7 +2,6 @@
 
 
 ## Group Members
-* Radhouan Jouini
 * Domenic Wolf
 
 ## Dev-Log
